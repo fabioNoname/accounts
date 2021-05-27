@@ -5,16 +5,16 @@ import java.math.BigDecimal;
 import javax.transaction.SystemException;
 
 public enum OperationEnum {
-	COMPRAAVISTA("COMPRA A VISTA", -1), 
-	COMPRAPARCELADA("COMPRA PARCELADA", -1), 
-	SAQUE("SAQUE", -1),
-	PAGAMENTO("PAGAMENTO", 1);
+	COMPRAAVISTA(1l, -1), 
+	COMPRAPARCELADA(2l, -1), 
+	SAQUE(3l, -1),
+	PAGAMENTO(4l, 1);
 
 	private BigDecimal fator;
-	private String description;
+	private Long id;
 
-	OperationEnum(String description, int fator) {
-		this.description = description;
+	OperationEnum(Long id, int fator) {
+		this.id = id;
 		this.fator = BigDecimal.valueOf(fator);
 	}
 
@@ -22,13 +22,13 @@ public enum OperationEnum {
 		return fator;
 	}
 
-	public String getDescription() {
-		return description;
+	public Long getId() {
+		return id;
 	}
 
-	public static OperationEnum findByDescription(String description) throws SystemException {
+	public static OperationEnum findByDescription(Long id) throws SystemException {
 		for (OperationEnum operationEnum : OperationEnum.values()) {
-			if(operationEnum.getDescription().equalsIgnoreCase(description)) {
+			if(operationEnum.getId() == id) {
 				return operationEnum;
 			}
 		}

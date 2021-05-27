@@ -34,7 +34,7 @@ public class Transactions {
 	}
 
 	public Transactions(Account account2, OperationType operationType2, BigDecimal amount2) throws SystemException {
-		OperationEnum opertion = OperationEnum.findByDescription(operationType2.getDescription());
+		OperationEnum opertion = OperationEnum.findByDescription(operationType2.getId());
 		
 		this.eventDate = LocalDateTime.now();
 		this.account = account2;
