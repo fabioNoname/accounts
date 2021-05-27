@@ -7,12 +7,11 @@ Passo 1: Preparando o ambiente de desenvolvimento.
 4. Após baixar o projeto, importe o projeto.
 5. Baixe o banco de dados mysql, instale e para o usário root configure a senha "root", mantenha a configuração na porta 3306 e crie o schama com nome "pismo".
 7. Em ferramenta Boot Dashboard você já pode iniciar o projeto.
-8. Faça os inserts na tabele operation_type, com o script abaixo.
-  insert into operation_type (description) values ('COMPRA A VISTA');
-  insert into operation_type (description) values ('COMPRA PARCELADA');
-  insert into operation_type (description) values ('SAQUE');
-  insert into operation_type (description) values ('PAGAMENTO');
-  
+8. Faça os inserts na tabele operation_type, com o script abaixo. 
+   1. insert into operation_type (description) values ('COMPRA A VISTA');
+   2. insert into operation_type (description) values ('COMPRA PARCELADA');
+   3. insert into operation_type (description) values ('SAQUE');
+   4. insert into operation_type (description) values ('PAGAMENTO'); 
   
 10. execute as classes de testes para validar se está tudo funcionando corretamente.
 
