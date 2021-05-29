@@ -1,5 +1,4 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-ARG JAR_FILE=target/0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk
+WORKDIR /app
+COPY target/accounts-0.0.1-SNAPSHOT.jar /app/accounts.jart
+ENTRYPOINT ["java","-jar","/accounts.jar"]
