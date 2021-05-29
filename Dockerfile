@@ -1,4 +1,6 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:8-jre
+RUN mkdir app
+ARG JAR_FILE
+ADD /target/${JAR_FILE} /app/spring-docker-spotify.jar
+WORKDIR /app
+ENTRYPOINT java -jar spring-docker-spotify.jar
