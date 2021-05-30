@@ -22,14 +22,15 @@ Passo 2: Preparando o ambeinte docker.
 2. crie um sua rede network: $ docker network create --driver bridge pismo
 3. crie um container do mysql: $ docker run --network pismo --name mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 4. crie um DATABASE com nome "pismo".
-5. Na pasta do projeto contrua a imagem do projeto: $ docker build -t accounts .
-6. Inicie seu container: docker run --network pismo -p 8080:8080 accounts
-7. Faça os inserts na tabele operation_type, com o script abaixo.
+5. Abra o arquivo application.yml do projeto e na URL do datasource substitua localhost por mysql e salve.
+6. Na pasta do projeto contrua a imagem do projeto: $ docker build -t accounts .
+7. Inicie seu container: docker run --network pismo -p 8080:8080 accounts
+8. Faça os inserts na tabele operation_type, com o script abaixo.
    1. insert into pismo.operation_type (description) values ('COMPRA A VISTA');
    2. insert into pismo.operation_type (description) values ('COMPRA PARCELADA');
    3. insert into pismo.operation_type (description) values ('SAQUE');
    4. insert into pismo.operation_type (description) values ('PAGAMENTO'); 
-8. use o postman para testar as requisições.
+9. use o postman para testar as requisições.
    
 
 
