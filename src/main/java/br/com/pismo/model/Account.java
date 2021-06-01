@@ -1,5 +1,7 @@
 package br.com.pismo.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +14,7 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String documentNumber;
+	private BigDecimal limite;
 
 	public Account() {
 	}
@@ -34,6 +37,14 @@ public class Account {
 
 	public void setDocumentNumber(String documentNumber) {
 		this.documentNumber = documentNumber;
+	}
+
+	public BigDecimal getLimite() {
+		return limite;
+	}
+
+	public void setLimite(BigDecimal limite) {
+		this.limite = limite;
 	}
 
 }

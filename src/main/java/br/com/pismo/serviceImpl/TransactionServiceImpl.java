@@ -29,6 +29,10 @@ public class TransactionServiceImpl {
 		
 		Transactions transaction = new  Transactions(account.get(), operationType.get(),transactionDto.getAmount());
 		
+		if(transaction.getAccount().getLimite().doubleValue() < 0) {
+			throw new SystemException("transação não autoriza!");
+		}
+		
 		return transactionService.save(transaction);
 	}
 

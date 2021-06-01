@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pismo.dto.AccountDTO;
 import br.com.pismo.model.Account;
-import br.com.pismo.service.AccountService;
 import br.com.pismo.serviceImpl.AccountServiceImpl;
 
 @RestController
@@ -29,6 +28,12 @@ public class AccountsController {
 	@RequestMapping(path = "/{accountId}")
 	public Optional<Account> findAccount(@PathVariable Long accountId) {
 		return accountService.findById(accountId);
+	}
+	
+	@RequestMapping(path = "/limit/", method = RequestMethod.POST)
+	public void findAccount(@RequestBody AccountDTO account) {
+		accountService.updateLimit(account.getId(),account.getLimit());
+		
 	}
 
 }

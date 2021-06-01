@@ -34,4 +34,9 @@ public enum OperationEnum {
 		}
 		throw new SystemException();
 	}
+
+	void operacao(Account account2, BigDecimal amount2) {
+		Double limit = amount2.doubleValue() * this.fator.doubleValue();
+		account2.setLimite(BigDecimal.valueOf(account2.getLimite().doubleValue() + limit));
+	}
 }

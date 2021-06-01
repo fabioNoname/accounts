@@ -1,5 +1,6 @@
 package br.com.pismo.serviceImpl;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,13 @@ public class AccountServiceImpl {
 
 	public Optional<Account> findById(Long accountId) {
 		return accountService.findById(accountId);
+	}
+
+	public void updateLimit(Long accountId, BigDecimal limit) {
+		Optional<Account> accout = accountService.findById(accountId);
+		Account account = accout.get();
+		account.setLimite(limit);
+		accountService.save(account);
 	}
 
 }
